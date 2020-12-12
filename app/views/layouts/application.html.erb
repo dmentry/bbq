@@ -13,20 +13,28 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
-    <![endif]-->
+    <!- <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>-->
+    <!--[endif]-->
   </head>
   <body>
 
     <div class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
+
         <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="navbar-nav">
-            <li class="nav-item buffer-left-right"><%= link_to "Link1", "/path1"  %></li>
-            <li class="nav-item buffer-left-right"><%= link_to "Link2", "/path2"  %></li>
-            <li class="nav-item buffer-left-right"><%= link_to "Link3", "/path3"  %></li>
+            <% if user_signed_in? %>
+            <li class="buffer-left-right"><%=link_to "Профиль", current_user %></li>
+              <li class="buffer-left-right"><%= link_to "Выйти", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li class="buffer-left-right text-color"><%=link_to "Войти", new_user_session_path %></li>
+              <li class="buffer-left-right"><%=link_to "Зарегистрироваться", new_user_registration_path %></li>
+            <% end %>
+<!--            <li class="nav-item buffer-left-right"><%#= link_to "Link1", "/path1"  %></li>-->
+<!--            <li class="nav-item buffer-left-right"><%#= link_to "Link2", "/path2"  %></li>-->
+<!--            <li class="nav-item buffer-left-right"><%#= link_to "Link3", "/path3"  %></li>-->
           </ul>
         </div>
       </div>
@@ -35,14 +43,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-
-          <%# if flash.any? %>
-<!--            <div class="content-wrapper buffer-both">-->
-              <%# flash.each do |name, message| %>
-                <%#= content_tag :div, message, class: "flash-#{name}" %>
-              <%# end %>
-<!--            </div>-->
-          <%# end %>
 
           <% flash.each do |key, value| %>
             <div class="<%= flash_class(key) %>" role="alert">
@@ -53,15 +53,7 @@
           <%= yield %>
         </div>
         <div class="col-lg-3">
-          <div class="well sidebar-nav bg-light">
-            <h3>Sidebar</h3>
-            <ul class="nav navbar-nav">
-              <li class="nav-header">Sidebar</li>
-              <li class="nav-item buffer-top"><%= link_to "Link1", "/path1"  %></li>
-              <li class="nav-item buffer-top"><%= link_to "Link2", "/path2"  %></li>
-              <li class="nav-item buffer-top"f><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
+
         </div><!--/span-->
       </div><!--/row-->
 
