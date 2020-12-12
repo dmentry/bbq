@@ -10,6 +10,9 @@ gem 'puma', '~> 4.1'
 gem 'webpacker', '~> 4.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
+
+gem 'devise'
+
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
