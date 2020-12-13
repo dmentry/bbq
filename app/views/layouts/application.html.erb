@@ -23,13 +23,14 @@
 
         <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
+<!--        <div class="navbar-collapse collapse navbar-responsive-collapse">-->
+        <div class="navbar navbar-responsive">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
             <li class="buffer-left-right"><%=link_to "Профиль", current_user %></li>
               <li class="buffer-left-right"><%= link_to "Выйти", destroy_user_session_path, :method => :delete %></li>
             <% else %>
-              <li class="buffer-left-right text-color"><%=link_to "Войти", new_user_session_path %></li>
+              <li class="buffer-left-right"><%=link_to "Войти", new_user_session_path %></li>
               <li class="buffer-left-right"><%=link_to "Зарегистрироваться", new_user_registration_path %></li>
             <% end %>
 <!--            <li class="nav-item buffer-left-right"><%#= link_to "Link1", "/path1"  %></li>-->
