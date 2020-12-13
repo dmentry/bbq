@@ -21,13 +21,11 @@
     <div class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
 
-        <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
-
-<!--        <div class="navbar-collapse collapse navbar-responsive-collapse">-->
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
         <div class="navbar navbar-responsive">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
-            <li class="buffer-left-right"><%=link_to "Профиль", current_user %></li>
+            <li class="buffer-left-right color-text "><%=link_to "Профиль", current_user %></li>
               <li class="buffer-left-right"><%= link_to "Выйти", destroy_user_session_path, :method => :delete %></li>
             <% else %>
               <li class="buffer-left-right"><%=link_to "Войти", new_user_session_path %></li>
@@ -59,7 +57,7 @@
       </div><!--/row-->
 
       <footer class="fixed-bottom">
-        <p>&copy; Company 2016</p>
+        <p>&copy; <%= t('app.company') %> 2020</p>
       </footer>
 
     </div> <!-- /container -->

@@ -26,37 +26,42 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+        redirect_to @event, notice: I18n.t('controllers.events.created')
+        # format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        # format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        render :new
+        # format.json { render json: @event.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /events/1
   def update
-    respond_to do |format|
+    # respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+        redirect_to @event, notice: I18n.t('controllers.events.updated')
+        # format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        render :edit
+        # format.html { render :edit }
+        # format.json { render json: @event.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # DELETE /events/1
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
+    # respond_to do |format|
+    #   format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      # format.json { head :no_content }
+    # end
   end
 
   private

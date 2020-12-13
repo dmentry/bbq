@@ -12,6 +12,8 @@ gem 'webpacker', '~> 4.0'
 # gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
+gem 'devise-i18n'
+gem 'russian'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 

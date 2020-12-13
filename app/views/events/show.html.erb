@@ -11,6 +11,7 @@
             <h1><%= @event.title %></h1>
             <%# Для перевода времени в русский формат используем I18n %>
             <%# Формат при этом используется из гема russian %>
+<!--            <h3><%#= l @event.datetime, format: :long %></h3>-->
             <h3><%= l @event.datetime, format: :long %></h3>
 
             <h3>
