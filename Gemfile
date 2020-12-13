@@ -13,7 +13,7 @@ gem 'webpacker', '~> 4.0'
 
 gem 'devise'
 gem 'devise-i18n'
-gem 'russian'
+gem 'rails-i18n'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 

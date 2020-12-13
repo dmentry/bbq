@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  add_flash_types :info, :error, :warning
+
   before_action :authenticate_user!, except: [:show]
   before_action :set_current_user, except: [:show]
 
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
     # respond_to do |format|
       if @user.update(user_params)
         redirect_to @user, notice: I18n.t('controllers.users.updated')
+
         # format.html { redirect_to @user, notice: 'User was successfully updated.' }
         # format.json { render :show, status: :ok, location: @user }
       else
