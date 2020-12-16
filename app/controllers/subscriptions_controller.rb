@@ -4,19 +4,27 @@ class SubscriptionsController < ApplicationController
 
   # POST /subscriptions
   def create
-    @subscription = Subscription.new(subscription_params)
+    @new_subscription = @event.subscriptions.build(subscription_params)
+    @new_subscription.user = current_user
 
-    if @subscription.save
-      redirect_to @subscription, notice: 'Subscription was successfully created.'
+    if @new_subscription.save
+      redirect_to @event, notice: I18n.t('controllers.subscription.created')
     else
-      render :new
+      render 'events/show', alert: I18n.t('controllers.subscription.error')
     end
   end
 
  # DELETE /subscriptions/1
   def destroy
-    @subscription.destroy
-    redirect_to subscriptions_url, notice: 'Subscription was successfully destroyed.'
+    message = { notice: I18n.t('controllers.subscription.destroyed') }
+
+    if current_user_can_edit?(@subscription)
+      @subscription.destroy
+    else
+      message = { alert: I18n.t('controllers.subscription.error') }
+    end
+
+    redirect_to @event, message
   end
 
   private
