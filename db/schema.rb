@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_194722) do
+ActiveRecord::Schema.define(version: 2020_12_17_114605) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.string "user_name"
     t.integer "event_id", null: false
-    t.integer "user_id", default: 1
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_12_16_194722) do
     t.string "user_name"
     t.string "user_email"
     t.integer "event_id", null: false
-    t.integer "user_id", default: 1
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_subscriptions_on_event_id"
