@@ -7,5 +7,9 @@
     <p class="buffer-top">
       <%= link_to "Сменить пароль", edit_user_registration_path %>
     </p>
+
+    <p class="buffer-top">
+      <%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: 'Вы уверены?' }  %>
+    </p>
   </div>
 </div>

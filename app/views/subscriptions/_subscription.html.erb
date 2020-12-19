@@ -1,14 +1,20 @@
 <span class="subscription">
-  <% if subscription.user.present? %>
-    <%= render partial: 'users/user', object: subscription.user %>
-  <% else %>
-    <em><%= subscription.user_name %></em>
-  <% end %>
-  <% if current_user_can_edit?(subscription) %>
-    <%= link_to(
-            fa_icon('times'),
-            event_subscription_path(subscription.event, subscription), method: :delete,
+
+  <%# if subscription.event.user == current_user %>
+<!--    User can not subscribe-->
+  <%# else %>
+<!--    User can subscribe-->
+  <%# end %>
+
+    <% if subscription.user.present? %>
+      <%= render partial: 'users/user', object: subscription.user %>
+    <% else %>
+      <em><%= subscription.user_name %></em>
+    <% end %>
+
+    <% if current_user_can_edit?(subscription) %>
+      <%= link_to(fa_icon('times'), event_subscription_path(subscription.event, subscription), method: :delete,
             data: {confirm: t('.destroy_confirm')}
         ) %>
-  <% end %>
+    <% end %>
 </span>

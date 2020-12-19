@@ -34,12 +34,18 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    redirect_to users_url, notice: I18n.t('controllers.users.destroyed')
+    # @user.destroy
+    # redirect_to users_url, notice: I18n.t('controllers.users.destroyed')
     # respond_to do |format|
     #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     #   format.json { head :no_content }
     # end
+
+    message = { notice: I18n.t('controllers.users.destroyed') }
+      @user.destroy
+
+    redirect_to root_path, message
+
   end
 
   private
@@ -47,6 +53,7 @@ class UsersController < ApplicationController
   def set_current_user
     @user = current_user
   end
+
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email)
