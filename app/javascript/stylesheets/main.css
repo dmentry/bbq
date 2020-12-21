@@ -38,3 +38,9 @@
 .thumbnail-inner {
     padding: 20px 4px 4px;
 }
+
+/* Размер аватарки на странице события */
+.user-avatar .img-icon {
+    margin-top: -2px;
+    height: 20px;
+}
