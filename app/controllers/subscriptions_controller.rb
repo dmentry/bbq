@@ -9,10 +9,8 @@ class SubscriptionsController < ApplicationController
 
     redirect_to 'events/show', alert: I18n.t('controllers.subscription.error') if current_user == @event.user
 
-    # redirect_to 'events/show', alert: I18n.t('Такой email уже зарегистрирован!') if User.find_by[email: subscription_params[:user_email]]
-    # redirect_to 'events/show', alert: I18n.t('Такой email уже зарегистрирован!') if is_email?
-
     if @new_subscription.save
+      EventMailer.subscription(@event, @new_subscription).deliver_now
       redirect_to @event, notice: I18n.t('controllers.subscription.created')
     else
       render 'events/show', alert: I18n.t('controllers.subscription.error')
