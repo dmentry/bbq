@@ -23,14 +23,6 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    message = { notice: I18n.t('controllers.users.destroyed') }
-
-    if @user == current_user
-      @user.destroy!
-    else
-      message = {alert: I18n.t('controllers.users.error')}
-    end
-    redirect_to root_path, message
   end
 
   private
