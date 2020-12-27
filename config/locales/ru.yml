@@ -58,15 +58,12 @@ ru:
   app:
     name: 'Шашлыки'
     company: 'Компания'
-
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
-
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
-
   event_mailer:
     comment:
       title: 'Новый комментарий'
@@ -82,3 +79,8 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
+  form_errors:
+    one: '%{count} ошибка'
+    few: '%{count} ошибки'
+    many: '%{count} ошибок'

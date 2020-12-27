@@ -3,8 +3,11 @@
 <% if errors.any? %>
 
     <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <div class="lead buffer-bottom">
-        В вашей форме <%=errors.count %> ошибок
+        В вашей форме <%= I18n.t(:form_errors, count: errors.count) %>
       </div>
 
       <ul>
