@@ -5,11 +5,11 @@
     <%= render 'form' %>
 
     <p class="buffer-top">
-      <%= link_to "Сменить пароль", edit_user_registration_path %>
+      <%= link_to t('views.change_psw'), edit_user_registration_path, class: 'btn btn-primary' %>
     </p>
 
     <p class="buffer-top">
-      <%= link_to 'Удалить профиль', @user, method: :delete, data: { confirm: 'Вы уверены?' }  %>
+      <%= link_to t('views.delete_profile'), @user, method: :delete, data: { confirm: t('views.are_you_sure?') }, class: 'btn btn-danger' %>
     </p>
   </div>
 </div>

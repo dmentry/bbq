@@ -49,17 +49,10 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
+    message = {notice: I18n.t('controllers.events.destroyed')}
 
-
-    # if current_user_can_edit?(@event)
-    #   @event.destroy!
-    # else
-    #   message = {alert: I18n.t('controllers.events.error')}
-    # end
-    # redirect_to root_path, message
-
-    if @event.destroy!
-      message = {notice: I18n.t('controllers.events.destroyed')}
+    if current_user_can_edit?(@event)
+      @event.destroy!
     else
       message = {alert: I18n.t('controllers.events.error')}
     end
