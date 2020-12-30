@@ -1,12 +1,5 @@
 <span class="subscription">
-
-  <%# if subscription.event.user == current_user %>
-<!--    User can not subscribe-->
-  <%# else %>
-<!--    User can subscribe-->
-  <%# end %>
-
-    <% if subscription.user.present? %>
+   <% if subscription.user.present? %>
       <%= render partial: 'users/user', object: subscription.user %>
     <% else %>
       <em><%= subscription.user_name %></em>

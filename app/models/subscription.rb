@@ -16,6 +16,8 @@ class Subscription < ApplicationRecord
 
   validate :registered_email
 
+  validate :event_owner_subscription?
+
   # переопределяем метод, если есть юзер, выдаем его имя,
   # если нет -- дергаем исходный переопределенный метод
   def user_name
@@ -39,6 +41,12 @@ class Subscription < ApplicationRecord
   def registered_email
     if user_email.present? && User.find_by(email: :user_email).present?
       errors.add(:name, :email, message: "email уже занят!")
+    end
+  end
+
+  def event_owner_subscription?
+    if user == event.user
+      errors.add(:event, message: "Нельзя подписаться на собственное событие!")
     end
   end
 end
