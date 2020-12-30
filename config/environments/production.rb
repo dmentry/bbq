@@ -90,20 +90,20 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Setup the mailer config
-  # config.action_mailer.default_url_options = { host: 'mybbqapp.herokuapp.com'}
-  # config.action_mailer.raise_delivery_errors = false
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :smtp
-  #
-  # ActionMailer::Base.smtp_settings = {
-  #     :user_name => ENV['MAILJET_USERNAME'],
-  #     :password => ENV['MAILJET_PASSWORD'],
-  #     :domain => 'heroku.com',
-  #     :address => 'in-v3.mailjet.com',
-  #     :port => 587,
-  #     :authentication => :plain,
-  #     :enable_starttls_auto => true
-  # }
+  config.action_mailer.default_url_options = { host: 'mybbqapp.herokuapp.com'}
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.smtp_settings = {
+      :user_name => ENV['MAILJET_USERNAME'],
+      :password => ENV['MAILJET_PASSWORD'],
+      :domain => 'heroku.com',
+      :address => 'in-v3.mailjet.com',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
