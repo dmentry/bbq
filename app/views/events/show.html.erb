@@ -61,7 +61,10 @@
       </div>
 
       <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
+        <!--      Не показываю заголовок, если никто не подписался на событие-->
+        <% unless @event.subscriptions.except(@new_subscription).blank? %>
+          <h4>Пойдут:</h4>
+        <% end %>
         <div>
           <p>
             <%= render partial: 'subscriptions/subscription', collection: @event.subscriptions.except(@new_subscription) %>
@@ -69,7 +72,7 @@
         </div>
       </div>
 
-<!--      Не показываем форму подписки создателю мероприятия-->
+<!--      Не показываю форму подписки создателю мероприятия-->
       <% if @event.user != current_user %>
         <div class="event-subscription-form">
           <h4>Я пойду:</h4>
