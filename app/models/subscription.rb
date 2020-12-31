@@ -40,13 +40,14 @@ class Subscription < ApplicationRecord
 
   def registered_email
     if user_email.present? && User.find_by(email: :user_email).present?
-      errors.add(:name, :email, message: "email уже занят!")
+      # errors.add(:name, :email, message: "email уже занят!")
+      errors.add(:name, :email, message: I18n.t('general.email_error') )
     end
   end
 
   def event_owner_subscription?
     if user == event.user
-      errors.add(:event, message: "Нельзя подписаться на собственное событие!")
+      errors.add(:event, message: I18n.t('general.subscript_error'))
     end
   end
 end

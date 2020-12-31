@@ -98,3 +98,7 @@ ru:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
+
+  general:
+    email_error: 'email уже занят!'
+    subscript_error: 'Нельзя подписаться на собственное событие!'
