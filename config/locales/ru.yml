@@ -1,15 +1,11 @@
 ru:
-  # Перевод моделей
   activerecord:
-    # Перевод названия моделей
     models:
       user: 'Пользователь'
       event: 'Событие'
       subscription: 'Подписка'
       comment: 'Комментарий'
       photo: 'Фотография'
-
-    # Перевод названий аттрибутов моделей
     attributes:
       user:
         email: 'Email'
@@ -31,6 +27,13 @@ ru:
         user_email: 'Ваш email'
       photo:
         photo: 'Фотография'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              email_error: ' уже занят!'
+              subscript_error: 'Нельзя подписаться на собственное событие!'
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -104,7 +107,3 @@ ru:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
-
-  general:
-    email_error: ' уже занят!'
-    subscript_error: 'Нельзя подписаться на собственное событие!'
