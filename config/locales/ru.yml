@@ -64,6 +64,7 @@ ru:
   app:
     name: 'Шашлыки'
     company: 'Компания'
+
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'

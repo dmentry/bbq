@@ -61,6 +61,7 @@
       </div>
 
       <div class="event-subscriptions">
+
         <!--      Не показываю заголовок, если никто не подписался на событие-->
         <% unless @event.subscriptions.except(@new_subscription).blank? %>
           <h4>Пойдут:</h4>
