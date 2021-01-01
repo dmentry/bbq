@@ -15,8 +15,8 @@ class Subscription < ApplicationRecord
 
   # для данного event_id один email может использоваться только один раз (если нет юзера, анонимная подписка)
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
-
-  validates :user_email, exclusion: { in: User.pluck(:email), message: I18n.t(:user_email, :email_error) }
+  
+  validates :user_email, exclusion: { in: User.pluck(:email)}
 
   validate :event_owner_subscription?
 
@@ -44,7 +44,7 @@ class Subscription < ApplicationRecord
 
   def event_owner_subscription?
     if user == event.user
-      errors.add(:event, message: I18n.t(:user_email, :subscript_error))
+      errors.add(:user_email, :subscript_error)
     end
   end
 end
