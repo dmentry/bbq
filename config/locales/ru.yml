@@ -106,5 +106,5 @@ ru:
     many: '%{count} ошибок'
 
   general:
-    email_error: 'email уже занят!'
+    email_error: ' уже занят!'
     subscript_error: 'Нельзя подписаться на собственное событие!'
