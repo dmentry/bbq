@@ -2,8 +2,7 @@
 
   <div class="event-info row">
     <div class="col-md-12">
-      <%= content_tag 'div', '', class: 'event-background',
-                      style: "background-image: url(#{event_photo(@event)})" %>
+      <%= content_tag 'div', '', class: 'event-background', style: "background-image: url(#{event_photo(@event)})" %>
 
       <div class="event-info-inner row">
         <div class="col-md-6">
@@ -50,7 +49,6 @@
       </div>
 
       <div class="event-comments buffer-top">
-
         <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
 
         <div class="buffer-both">
