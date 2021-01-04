@@ -1,4 +1,8 @@
-<%= form_for @user, html: {multipart: true} do |f| %>
+<div class="card card-outline-secondary">
+  <div class="card-header">
+
+
+  <%= form_for @user, html: {multipart: true} do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
   <div class="form-group">
@@ -21,3 +25,6 @@
     <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'Вернуться', :back %>
   </div>
 <% end %>
+
+  </div>
+</div>
