@@ -33,7 +33,7 @@ ru:
           attributes:
             user_email:
               email_error: ' уже занят!'
-              subscript_error: 'Нельзя подписаться на собственное событие!'
+              owner_tries_to_subscript_error: 'Нельзя подписаться на собственное событие!'
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -106,6 +106,10 @@ ru:
     change_psw: 'Изменить пароль'
     delete_profile: 'Удалить профиль'
     edit_profile: 'Редактировать профиль'
+    edit_event: 'Редактировать событие'
+    events_list: 'События'
+    new_event: 'Новое событие'
+    pincode_access: 'Доступ только по пин-коду'
 
   form_errors:
     one: '%{count} ошибка'

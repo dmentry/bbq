@@ -36,13 +36,15 @@ class Subscription < ApplicationRecord
     end
   end
 
+  private
+
   def email_exists?
     errors.add(:user_email, :email_error) if User.exists?(email: "#{user_email&.downcase!}")
   end
 
   def event_owner_subscription?
     if user == event.user
-      errors.add(:user_email, :subscript_error)
+      errors.add(:user_email, :owner_tries_to_subscript_error)
     end
   end
 end
