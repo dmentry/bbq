@@ -2,8 +2,6 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
-  before_validation :email_downcase
-
   validates :event, presence: true
 
   # проверки выполняются только если user не задан (незареганные приглашенные)
@@ -19,10 +17,6 @@ class Subscription < ApplicationRecord
   validate :email_exists?
 
   validate :event_owner_subscription?
-
-  def email_downcase
-    user_email&.downcase!
-  end
 
   # переопределяем метод, если есть юзер, выдаем его имя, если нет -- дергаем исходный переопределенный метод
   def user_name
@@ -43,7 +37,7 @@ class Subscription < ApplicationRecord
   end
 
   def email_exists?
-    errors.add(:user_email, :email_error) if User.find_by(email: "#{user_email}").present?
+    errors.add(:user_email, :email_error) if User.exists?(email: "#{user_email&.downcase!}")
   end
 
   def event_owner_subscription?
