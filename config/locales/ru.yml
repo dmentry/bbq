@@ -110,6 +110,8 @@ ru:
     events_list: 'События'
     new_event: 'Новое событие'
     pincode_access: 'Доступ только по пин-коду'
+    add_photo: 'Добавил'
+    destroy_confirm_photo: 'Вы уверены, что хотите удалить эту фотографию?'
 
   form_errors:
     one: '%{count} ошибка'
