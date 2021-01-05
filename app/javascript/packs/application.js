@@ -6,7 +6,7 @@ require("jquery")
 import 'bootstrap/dist/js/bootstrap'
 import '../stylesheets/application'
 import './map'
-import './lightbox-plus-jquery'
+import './lightbox'
 
 
 
