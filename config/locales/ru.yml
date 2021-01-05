@@ -99,6 +99,7 @@ ru:
   views:
     new_session_head: 'Войти'
     registration: 'Зарегистрироваться'
+    password_placeholder: 'Пароль'
     psw_symols_min: ' символов минимум'
     are_you_sure?: 'Вы уверены?'
     change: 'Изменить'
