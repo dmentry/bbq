@@ -37,7 +37,7 @@
 
       <div class="event-photos">
         <%# Выводим все фотографии события %>
-        <div class="event-photos-gallery">
+        <div class="row">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
 

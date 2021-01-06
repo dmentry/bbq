@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   # Хелпер проверяет, может ли заданный юзер редактировать заданный ивент
   helper_method :current_user_can_edit?
+  helper_method :current_user_can_delete?
 
   # Настройка для девайза — разрешаем обновлять профиль, но обрезаем
   # параметры, связанные со сменой пароля.
@@ -19,4 +20,9 @@ class ApplicationController < ActionController::Base
     user_signed_in? &&
         (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
   end
+
+  def current_user_can_delete?(photo)
+    (user_signed_in? && photo.user == current_user) || (user_signed_in? && photo.event.user == current_user)
+  end
 end
+

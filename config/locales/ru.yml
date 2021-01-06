@@ -113,6 +113,7 @@ ru:
     pincode_access: 'Доступ только по пин-коду'
     add_photo: 'Добавил'
     destroy_confirm_photo: 'Вы уверены, что хотите удалить эту фотографию?'
+    photo_added: 'Добавлена: '
 
   form_errors:
     one: '%{count} ошибка'
