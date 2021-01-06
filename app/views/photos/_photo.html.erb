@@ -4,7 +4,9 @@
   <%# Показываем не только фотку, но и юзера, который её добавил %>
   <%= t('views.add_photo') %> <%= render partial: 'users/user', object: photo.user %>
 
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: { lightbox: "Фотки", title: "Фотка @#{photo.user.name}"} %>
+  <%#= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: { lightbox: "Фотки", title: "Фотка @#{photo.user.name}"} %>
+
+  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url%>
 
   <% if current_user_can_edit?(photo) %>
     <%= link_to(fa_icon('trash'), event_photo_path(photo.event, photo), method: :delete, data: { confirm: t('views.destroy_confirm_photo') }) %>
