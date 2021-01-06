@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
 
   private
   # Так как фотография — вложенный ресурс, то в params[:event_id] рельсы
-  # автоматически положает id события, которому принадлежит фотография
+  # автоматически положит id события, которому принадлежит фотография
   # найденное событие будет лежать в переменной контроллера @event
   def set_event
     @event = Event.find(params[:event_id])
