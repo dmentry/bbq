@@ -1,23 +1,10 @@
-<%# Паршал для вывода отдельной фотографии %>
-<!--<div class="event-photo buffer-both">-->
-
-  <%# Показываем не только фотку, но и юзера, который её добавил %>
-  <%#= t('views.add_photo') %> <%#= render partial: 'users/user', object: photo.user %>
-
-  <%#= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: { lightbox: "Фотки", title: "Фотка @#{photo.user.name}"} %>
-
-  <%# if current_user_can_edit?(photo) %>
-    <%#= link_to(fa_icon('trash'), event_photo_path(photo.event, photo), method: :delete, data: { confirm: t('views.destroy_confirm_photo') }) %>
-  <%# end %>
-<!--</div>-->
-
 <div class="event-photo buffer-both mx-1">
 
   <% if current_user_can_delete?(photo) %>
-    <% trash_button = "#{ link_to(fa_icon('trash'), event_photo_path(photo.event, photo), method: :delete, data: { confirm: t('views.destroy_confirm_photo') }) }" %>
+    <% trash_button = "#{link_to(fa_icon('trash'), event_photo_path(photo.event, photo), method: :delete, data: { confirm: t('views.destroy_confirm_photo') })}" %>
   <% end %>
 
-  <% image_title = " #{t('views.photo_added')} #{ render partial: 'users/user', object: photo.user } #{ trash_button }" %>
+  <% image_title = " #{t('views.photo_added')} #{render partial: 'users/user', object: photo.user} #{trash_button}" %>
 
   <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, data: { toggle: "lightbox", title: image_title, gallery: "img-gallery" } %>
 </div>
