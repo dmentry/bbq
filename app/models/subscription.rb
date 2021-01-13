@@ -14,7 +14,7 @@ class Subscription < ApplicationRecord
   # для данного event_id один email может использоваться только один раз (если нет юзера, анонимная подписка)
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
 
-  validate :email_exists?
+  validate :email_exists?, unless: -> { user.present? }
 
   validate :event_owner_subscription?
 
@@ -39,9 +39,7 @@ class Subscription < ApplicationRecord
   private
 
   def email_exists?
-    unless user.present?
       errors.add(:user_email, :email_error) if User.exists?(email: user_email&.downcase)
-    end
   end
 
   def event_owner_subscription?
