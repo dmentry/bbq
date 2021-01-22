@@ -6,10 +6,11 @@ if Rails.env.production?
     config.fog_credentials = {
         provider:              'AWS',
         region:                'us-east-2',
-        aws_access_key_id:     Rails.application.credentials[Rails.env.to_sym][:aws][:S3_ACCESS_KEY],
-        aws_secret_access_key: Rails.application.credentials[Rails.env.to_sym][:aws][:S3_SECRET_KEY]
+        aws_access_key_id:     Rails.application.credentials.dig(Rails.env.to_sym, :aws, :S3_ACCESS_KEY),
+
+        aws_secret_access_key: Rails.application.credentials.dig(Rails.env.to_sym, :aws, :S3_SECRET_KEY)
     }
 
-    config.fog_directory  = Rails.application.credentials[Rails.env.to_sym][:aws][:S3_BUCKET_NAME]
+    config.fog_directory  = Rails.application.credentials.dig(Rails.env.to_sym, :aws, :S3_BUCKET_NAME)
   end
 end

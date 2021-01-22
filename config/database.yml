@@ -19,6 +19,6 @@ test:
 
 production:
   adapter: postgresql
-  user: <%= Rails.application.credentials[Rails.env.to_sym][:pg][:user] %>
-  password: <%= Rails.application.credentials[Rails.env.to_sym][:pg][:password] %>
-  database: <%= Rails.application.credentials[Rails.env.to_sym][:pg][:database] %>
+  user: <%= Rails.application.credentials.dig(Rails.env.to_sym, :pg, :user) %>
+  password: <%= Rails.application.credentials.dig(Rails.env.to_sym, :pg, :password) %>
+  database: <%= Rails.application.credentials.dig(Rails.env.to_sym, :pg, :database) %>
