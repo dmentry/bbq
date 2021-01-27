@@ -90,18 +90,27 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Setup the mailer config
-  config.action_mailer.default_url_options = { host: 'dack9.ru'}
+  config.action_mailer.default_url_options = { host: 'dack9.ru', :subdomain => "bbq"}
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
 
-  ActionMailer::Base.smtp_settings = {
-    user_name: Rails.application.credentials.dig(Rails.env.to_sym, :mailjet, :mailjet_username),
-    password: Rails.application.credentials.dig(Rails.env.to_sym, :mailjet, :mailjet_password),
-    domain: 'dack9.ru',
-    address: 'in-v3.mailjet.com',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
+  #Отправка мейлов через mailjet
+  # config.action_mailer.delivery_method = :smtp
+
+  # Или эта строка правильно? Проверить при необходимости!
+  # config.action_mailer.delivery_method = :mailjet
+
+  # ActionMailer::Base.smtp_settings = {
+  #   user_name: Rails.application.credentials.dig(Rails.env.to_sym, :mailjet, :mailjet_username),
+  #   password: Rails.application.credentials.dig(Rails.env.to_sym, :mailjet, :mailjet_password),
+  #   domain: 'dack9.ru',
+  #   address: 'in-v3.mailjet.com',
+  #   port: 587,
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
+
+  #Отправка мейлов через postfix
+  config.action_mailer.delivery_method = :sendmail
   }
 end

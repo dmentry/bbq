@@ -61,16 +61,4 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  #
-  # # Настройки для работы через Mail аккаунт
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #     address: 'in-v3.mailjet.com',
-  #     port: 587,
-  #     user_name: Rails.application.credentials.mailjet[:mailjet_username], # не используйте для тестов свои реальные ящики
-  #     password: Rails.application.credentials.mailjet[:mailjet_password], # не храните здесь пароль!
-  #     authentication: 'plain',
-  #     enable_starttls_auto: true
-  # }
 end

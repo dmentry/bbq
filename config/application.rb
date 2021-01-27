@@ -28,10 +28,9 @@ module Bbq
     config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
     config.i18n.fallbacks = [I18n.default_locale]
+
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    config.action_mailer.delivery_method = :mailjet
   end
 end
 

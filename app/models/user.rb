@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  after_save :send_welcome_mail
+
   private
 
   def set_name
