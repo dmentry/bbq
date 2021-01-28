@@ -112,5 +112,5 @@ Rails.application.configure do
 
   #Отправка мейлов через postfix
   config.action_mailer.delivery_method = :sendmail
-  }
+  #}
 end
