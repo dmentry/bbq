@@ -29,9 +29,9 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
 
-  gem 'capistrano', '~> 3.11.0'
-  gem 'capistrano-rails', '~> 1.3.0'
+  gem 'capistrano', '~> 3.10'
+  gem 'capistrano-rails', '~> 1.6'
   gem 'capistrano-passenger', '~> 0.2'
   gem 'capistrano-rbenv', '~> 2.1'
-  gem 'capistrano-bundler', '~> 1.4.0'
+  gem 'capistrano-bundler', '~> 2.0'
 end

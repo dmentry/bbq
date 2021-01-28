@@ -10,7 +10,7 @@ set :repo_url, 'git@github.com:dmentry/bbq_my.git'
 set :deploy_to, '/home/deploy/www/bbq'
 
 # Файлы, которые лежат вне репозитория
-append :linked_files, 'config/database.yml', 'config/credentials.yml.enc'
+append :linked_files, 'config/database.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 
 # Default branch is :master
