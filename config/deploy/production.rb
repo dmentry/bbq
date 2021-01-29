@@ -60,4 +60,4 @@
 #     # password: "please use keys"
 #   }
 
-server 'bbq.dack9.ru', user: 'deploy', roles: %w{app db web}
+server 'bbq.dack9.ru', user: 'deploy', roles: %w[app db web]

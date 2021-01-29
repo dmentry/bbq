@@ -3,6 +3,7 @@ lock "~> 3.11.2"
 
 # Это имя приложения
 set :application, 'bbq'
+
 # Это url вашего репозитория, откуда Capistrano будет брать свежие версии исходников
 set :repo_url, 'git@github.com:dmentry/bbq_my.git'
 
@@ -10,7 +11,7 @@ set :repo_url, 'git@github.com:dmentry/bbq_my.git'
 set :deploy_to, '/home/deploy/www/bbq'
 
 # Файлы, которые лежат вне репозитория
-append :linked_files, 'config/database.yml', 'config/master.key'
+append :linked_files, 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 
 # Default branch is :master
