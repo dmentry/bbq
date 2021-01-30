@@ -119,3 +119,6 @@ ru:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
     many: '%{count} ошибок'
+
+  pundit:
+    not_authorized: 'Вам сюда не надо!'

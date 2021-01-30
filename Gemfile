@@ -14,6 +14,7 @@ gem 'rmagick'
 gem 'fog-aws'
 gem 'mailjet'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'pundit'
 
 group :production do
   gem 'pg'
