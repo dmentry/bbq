@@ -88,8 +88,6 @@ class EventsController < ApplicationController
   # http://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html
   #
   def password_guard!
-    # return true if @event.pincode.blank?
-    # return true if signed_in? && current_user == @event.user
 
     # Юзер на чужом событии (или не залогинен). Проверяем, правильно ли передал
     # пинкод. Если правильно, запоминаем в куках этого юзера этот пинкод для данного события.
@@ -105,16 +103,6 @@ class EventsController < ApplicationController
 
       render 'password_form'
     end
-
-    # Проверяем — верный ли в куках пинкод, если нет — ругаемся и рендерим форму
-    # pincode = cookies.permanent["events_#{@event.id}_pincode"]
-
-    # unless @event.pincode_valid?(pincode)
-    #   if params[:pincode].present?
-    #     flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
-    #   end
-    #   render 'password_form'
-    # end
   end
 
   def set_event

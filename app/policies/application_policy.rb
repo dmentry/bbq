@@ -1,10 +1,7 @@
 # Базовый класс для всех политик с набором типичных CRUDL действий
 # По умолчанию все действия, кроме show? запрещены
 class ApplicationPolicy
-  attr_reader :record, :context, :pin, :user
-
-  delegate :user, to: :context
-  delegate :pin, to: :context
+  attr_reader :record, :context
 
   # По умолчанию Pundit в качестве первого аргумента подставляет current_user, если политика вызывается в контроллере
   def initialize(context, record)
