@@ -98,10 +98,17 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
+    diff-lcs (1.4.4)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
     excon (0.78.1)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
+    ffaker (2.17.0)
     ffi (1.13.1)
     fog-aws (3.7.0)
       fog-core (~> 2.1)
@@ -220,6 +227,23 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rmagick (4.1.2)
+    rspec-core (3.10.1)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-rails (4.0.2)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
+    rspec-support (3.10.2)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     sprockets (4.0.2)
@@ -269,6 +293,8 @@ DEPENDENCIES
   carrierwave
   devise
   devise-i18n
+  factory_bot_rails
+  ffaker
   fog-aws
   listen (~> 3.2)
   mailjet
@@ -279,6 +305,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-i18n
   rmagick
+  rspec-rails (~> 4.0.2)
   sqlite3 (~> 1.4)
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
