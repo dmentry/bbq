@@ -1,42 +1,73 @@
-require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe EventPolicy do
-  let(:user) { User.new(name: "TestUser", email: "1@1.1", id: 1) }
+    subject { EventPolicy }
 
-  # объект тестирования (политика)
-  subject { EventPolicy }
+  let!(:user1) { FactoryBot.create(:user) }
+  let!(:user_context1) { UserContext.new(user1, '') }
+  let!(:user2) { FactoryBot.create(:user) }
+  let!(:user_context2) { UserContext.new(user2, '') }
+  let!(:user_with_pin) { FactoryBot.create(:user) }
+  let!(:user_context_with_pin) { UserContext.new(user_with_pin, '1111') }
+  let!(:another_user_with_pin) { FactoryBot.create(:user) }
+  let!(:another_user_context_with_pin) { UserContext.new(another_user_with_pin, '1111') }
 
-  context 'when user is not an owner' do
-    let(:event) {Event.create(user: user, title: "TestEvent", address: "XZ", datetime: Time.now, user_id: 1)}
+  let!(:event1) { FactoryBot.create(:event, user: user1) }
+  let!(:event2) { FactoryBot.create(:event, user: user2) }
+  let!(:event_with_pin) { FactoryBot.create(:event_with_pin, user: user_with_pin) }
 
-    # permissions :create? do
-    #   it { is_expected.to permit(user, Link) }
-    #   it { is_expected.not_to permit(nil, Link) }
-    # end
-
-    permissions :edit?, :update?, :destroy? do
-      it { is_expected.not_to permit(user, event) }
+  context "when user logged in" do
+    context "user's own event" do
+      permissions :edit?, :update?, :destroy? do
+        it "has access" do
+          expect(subject).to permit(user_context1, event1)
+        end
+      end
     end
+
+    context "not user's own event" do
+      permissions :edit?, :update?, :destroy? do
+        it "does not have access" do
+          expect(subject).not_to permit(user_context1, event2)
+        end
+      end
+    end
+
+    context "user's own event with pin" do
+      permissions :edit?, :update?, :destroy? do
+        it "has access" do
+          expect(subject).to permit(user_context_with_pin, event_with_pin)
+        end
+      end
+    end
+
+    context "not user's own event with pin" do
+      permissions :edit?, :update?, :destroy? do
+        it "does not have access" do
+          expect(subject).not_to permit(user_context1, event_with_pin)
+        end
+      end
+    end
+
+    context "not user's own event with pin but he has pin" do
+      permissions :show? do
+        it "has access" do
+          expect(subject).to permit(another_user_context_with_pin, event_with_pin)
+        end
+      end
+    end
+
+    context "not user's own event with pin and he does not have pin" do
+      permissions :show? do
+        it "does not have access" do
+          expect(subject).not_to permit(user_context1, event_with_pin)
+        end
+      end
+    end
+
+
   end
 
-  # context 'when user in an owner' do
-  #   # Тестируем относительно ссылки этого юзера в этом контексте
-  #   let(:link) { Link.create(url: 'goodprogrammer.ru', user: user) }
 
-  #   permissions :show?, :edit?, :update?, :destroy? do
-  #     it { is_expected.to permit(user, link) }
-  #   end
-  # end
 
-  # context 'when user is an admin' do
-  #   # Создаем админа и подставляем его в качестве пользователя
-  #   let(:admin) { User.new(admin: true) }
-  #   let(:link) { Link.create(url: 'goodprogrammer.ru', user: user) }
-
-  #   # Админу должно быть можно делать со ссылкой все
-  #   permissions :show?, :edit?, :update?, :destroy? do
-  #     it { is_expected.to permit(admin, link) }
-  #   end
-  # end
 end
