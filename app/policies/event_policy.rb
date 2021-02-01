@@ -18,6 +18,7 @@ class EventPolicy < ApplicationPolicy
     return true if record.pincode.blank?
     return true if user_is_creator?
     return true if record.pincode_valid?(context.pin)
+    false
   end
 
   class Scope < Scope
