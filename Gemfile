@@ -15,6 +15,7 @@ gem 'fog-aws'
 gem 'mailjet'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pundit'
+gem 'resque'
 
 group :production do
   gem 'pg'
@@ -39,4 +40,5 @@ group :development do
   gem 'capistrano-passenger', '~> 0.2'
   gem 'capistrano-rbenv', '~> 2.1'
   gem 'capistrano-bundler', '~> 2.0'
+  gem "capistrano-resque", "~> 0.2.3", require: false
 end

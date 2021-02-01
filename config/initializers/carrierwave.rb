@@ -7,7 +7,6 @@ if Rails.env.production?
         provider:              'AWS',
         region:                'us-east-2',
         aws_access_key_id:     Rails.application.credentials.dig(Rails.env.to_sym, :aws, :S3_ACCESS_KEY),
-
         aws_secret_access_key: Rails.application.credentials.dig(Rails.env.to_sym, :aws, :S3_SECRET_KEY)
     }
 

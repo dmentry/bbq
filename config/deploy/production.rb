@@ -60,4 +60,9 @@
 #     # password: "please use keys"
 #   }
 
-server 'bbq.dack9.ru', user: 'deploy', roles: %w[app db web]
+server 'bbq.dack9.ru', user: 'deploy', roles: %w[app db web resque_worker]
+
+# При запуске воркера загружать Rails приложение
+set :resque_environment_task, true
+# Будет запущен один воркер, обслуживающий очереди с именем "bbq*"
+set :workers, { "#{fetch(:application)}*" => 1 }
