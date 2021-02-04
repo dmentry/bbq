@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -29,14 +29,5 @@ class User < ApplicationRecord
   # https://stackoverflow.com/questions/27518070/active-job-with-rails-4-and-devise
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
-  end
-
-  def self.from_omniauth(auth)
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-      end
   end
 end

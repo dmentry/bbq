@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
-      MailSendingJob.perform_later(event: @event, photo: @new_photo)
+      MailSendingJob.perform_later(photo: @new_photo)
 
       # Если фотографию удалось сохранить, редирект на событие с сообщением
       redirect_to @event, notice: I18n.t('controllers.photos.created')
