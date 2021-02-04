@@ -10,7 +10,7 @@ class MailSendingJob < ApplicationJob
       elsif arguments[:comment]
         #исключаю автора коммента, если он не аноним
         unless arguments[:comment].user == nil
-          all_emails - [(arguments[:comment].user.email)]
+          all_emails = all_emails - [(arguments[:comment].user.email)]
         end
 
         all_emails.each do |mail|
@@ -19,7 +19,7 @@ class MailSendingJob < ApplicationJob
 
       elsif arguments[:photo]
         # собираем всех подписчиков, кроме автора фотки в массив мэйлов, исключаем повторяющиеся
-        all_emails - [arguments[:photo].user.email]
+        all_emails = all_emails - [arguments[:photo].user.email]
 
         all_emails.each do |mail|
           EventMailer.photo(arguments[:photo], mail).deliver_later
