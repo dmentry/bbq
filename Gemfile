@@ -6,7 +6,8 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'puma', '~> 4.1'
 gem 'webpacker', '~> 4.0'
-gem 'devise'
+# gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem 'carrierwave'
@@ -16,6 +17,10 @@ gem 'mailjet'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pundit'
 gem 'resque'
+
+# gem 'omniauth-oauth2'
+gem 'omniauth'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
 group :production do
   gem 'pg'
