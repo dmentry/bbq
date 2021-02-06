@@ -18,9 +18,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pundit'
 gem 'resque'
 
-# gem 'omniauth-oauth2'
 gem 'omniauth'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-rails_csrf_protection'
 
 group :production do
   gem 'pg'
