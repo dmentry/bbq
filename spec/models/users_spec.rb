@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
       double(
         :access_token,
         provider: 'github',
-        info: double(email: 'slipin2020@mail.ru', urls: double(GitHub: 'https://api.github.com/users/dmentry'))
+        info: double(email: 'slipin2020@mail.ru', urls: double(GitHub: 'https://github.com/dmentry'))
       )
     end
 
@@ -34,10 +34,10 @@ RSpec.describe User, type: :model do
     # Ситуация: юзер найден по провайдеру и урлу
     context 'when user is found by provider + url' do
       let!(:existing_user) do
-        FactoryBot.create(:user, provider: 'github', GitHub: 'https://api.github.com/users/dmentry')
+        FactoryBot.create(:user, provider: 'github', url: 'https://github.com/dmentry')
       end
 
-      let!(:some_other_uer) { create(:user) }
+      let!(:some_other_user) { FactoryBot.create(:user) }
 
       it 'returns this user' do
         expect(User.find_for_github_oauth(access_token)).to eq existing_user

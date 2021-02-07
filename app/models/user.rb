@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github, :vk]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github, :vkontakte]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -32,6 +32,7 @@ class User < ApplicationRecord
   end
 
   def self.find_for_github_oauth(access_token)
+
     # Достаём email из токена
     email = access_token.info.email
     user = where(email: email).first
@@ -49,11 +50,23 @@ class User < ApplicationRecord
       # Если создаём новую запись, прописываем email и пароль
       user.email = email
       user.password = Devise.friendly_token.first(16)
-      # user.name = access_token.info.nickname
+      user.name = access_token.info.nickname
     end
   end
 
-  def self.find_for_vk_oauth(access_token)
-    binding.pry
+  def self.find_for_vkontakte_oauth(access_token)
+    email = access_token.info.email
+    user = where(email: email).first
+
+    return user if user.present?
+
+    provider = access_token.provider
+    url = access_token.info.urls.Vkontakte
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+      user.name = access_token.info.first_name
+    end
   end
 end
