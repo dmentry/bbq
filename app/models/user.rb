@@ -13,24 +13,6 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  private
-
-  def set_name
-    self.name = "Товарищ №#{rand(1000)}" if self.name.blank?
-  end
-
-  def link_subscriptions
-    Subscription.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)
-  end
-
-  # Переопределенный метод одного из родительских классов Devise
-  # Отличается от родителького только тем, что использует .deliver_later
-  # что кладет отправку почты в очередь фоновых задач
-  # https://stackoverflow.com/questions/27518070/active-job-with-rails-4-and-devise
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
-  end
-
   def self.find_for_github_oauth(access_token)
 
     # Достаём email из токена
@@ -68,5 +50,23 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token.first(16)
       user.name = access_token.info.first_name
     end
+  end
+
+  private
+
+  def set_name
+    self.name = "Товарищ №#{rand(1000)}" if self.name.blank?
+  end
+
+  def link_subscriptions
+    Subscription.where(user_id: nil, user_email: self.email).update_all(user_id: self.id)
+  end
+
+  # Переопределенный метод одного из родительских классов Devise
+  # Отличается от родителького только тем, что использует .deliver_later
+  # что кладет отправку почты в очередь фоновых задач
+  # https://stackoverflow.com/questions/27518070/active-job-with-rails-4-and-devise
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
   end
 end
