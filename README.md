@@ -11,4 +11,5 @@ Rails 6.0.3
 git clone git@github.com:dmentry/bbq_my.git
 
 Before run
+
 bundle && bundle exec rake db:migrate
