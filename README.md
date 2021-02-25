@@ -17,3 +17,10 @@ git clone git@github.com:dmentry/bbq_my.git
 
 ## Before run
 bundle && bundle exec rake db:migrate
+
+### Run locally server
+bundle exec rails s
+
+### Open in browser
+
+http://127.0.0.1:3000
