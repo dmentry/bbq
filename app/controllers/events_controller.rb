@@ -66,12 +66,12 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
 
-    message = {notice: I18n.t('controllers.events.destroyed')}
+    message = { notice: I18n.t('controllers.events.destroyed') }
 
     if current_user_can_edit?(@event)
       @event.destroy!
     else
-      message = {alert: I18n.t('controllers.events.error')}
+      message = { alert: I18n.t('controllers.events.error') }
     end
     redirect_to root_path, message
   end
@@ -82,16 +82,16 @@ class EventsController < ApplicationController
   #
   # И оно работает
   #
-  # Тогда куки в рельсах 4 и старше по умолчанию шифруются и хранить там пинкод
-  # для данной задачи достаточно безопасно.
+  # Тогда куки в рельсах 4 и старше по умолчанию шифруются и хранить там пинкод для данной задачи достаточно безопасно.
   #
   # http://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html
   #
+
   def password_guard!
 
     # Юзер на чужом событии (или не залогинен). Проверяем, правильно ли передал
     # пинкод. Если правильно, запоминаем в куках этого юзера этот пинкод для данного события.
-    # Так юзеру не нужно будет вводить пин-код каждый раз
+    # Так юзеру не нужно будет вводить пинкод каждый раз
     if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
       cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
     end
