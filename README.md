@@ -73,7 +73,7 @@ production:
 ```yarn```
 
 ### Start server
-To start rails server
+To start rails server:
 
 ```bundle exec rails s```
 
