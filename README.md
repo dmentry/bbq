@@ -13,7 +13,7 @@ Ruby 2.7.0
 Rails 6.0.3
 
 # Installation
-git clone git@github.com:dmentry/bbq_my.git
+git clone git@github.com:dmentry/bbq.git
 
 ## Before run
 bundle && bundle exec rake db:migrate
