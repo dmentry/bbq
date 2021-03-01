@@ -13,14 +13,20 @@ http://bbq.dack9.ru
 * Rails 6.0.3
 
 ## Clone
-```git clone git@github.com:dmentry/bbq.git```
+
+```
+git clone git@github.com:dmentry/bbq.git
+```
 
 ## Before run
-Put tokens from next services to ```config/credentials.yml.enc``` with
+Put tokens from next services to `config/credentials.yml.enc` with
 
-```rails credentials:edit```
+```
+rails credentials:edit
+```
 
-Structure of ```credentials.yml.enc```:
+Structure of `credentials.yml.enc`:
+
 ```
 development:
   aws:
@@ -66,16 +72,25 @@ production:
 ```
 
 ### Install and migrate db
-```bundle install```
 
-```bundle exec rake db:migrate```
+```
+bundle install
+```
 
-```yarn```
+```
+bundle exec rake db:migrate
+```
+
+```
+yarn
+```
 
 ### Start server
 To start rails server:
 
-```bundle exec rails s```
+```
+bundle exec rails s
+```
 
 ### Open in browser
 
