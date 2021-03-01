@@ -74,6 +74,7 @@ production:
 
 ### Start server
 To start rails server
+
 ```bundle exec rails s```
 
 ### Open in browser
