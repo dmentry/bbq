@@ -13,15 +13,15 @@ Ruby 2.7.0
 Rails 6.0.3
 
 # Installation
-git clone git@github.com:dmentry/bbq.git
+```git clone git@github.com:dmentry/bbq.git```
 
 ## Before run
-bundle && bundle exec rake db:migrate
+```bundle && bundle exec rake db:migrate```
 
-yarn
+```yarn```
 
 ### Run locally server
-bundle exec rails s
+```bundle exec rails s```
 
 ### Open in browser
 
