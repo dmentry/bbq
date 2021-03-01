@@ -18,6 +18,8 @@ git clone git@github.com:dmentry/bbq.git
 ## Before run
 bundle && bundle exec rake db:migrate
 
+yarn
+
 ### Run locally server
 bundle exec rails s
 
