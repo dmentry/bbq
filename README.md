@@ -8,9 +8,9 @@ http://bbq.dack9.ru
 ![Application screenshot](https://github.com/dmentry/bbq_my/blob/master/bbq_screenshot.jpg)
 
 ## Main requirements
-Ruby 2.7.0
+* Ruby 2.7.0
 
-Rails 6.0.3
+* Rails 6.0.3
 
 ## Clone
 ```git clone git@github.com:dmentry/bbq.git```
