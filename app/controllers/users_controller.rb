@@ -14,11 +14,11 @@ class UsersController < ApplicationController
   end
 
   def update
-      if @user.update(user_params)
-        redirect_to @user, notice: I18n.t('controllers.users.updated')
-      else
-        render :edit
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: I18n.t('controllers.users.updated')
+    else
+      render :edit
+    end
   end
 
   # DELETE /users/1
