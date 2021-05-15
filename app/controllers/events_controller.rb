@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     authorize @event
 
     # Болванки моделей для форм добавления
-    @new_comment = @event.comments.build(params[:comment])
+    @new_comment = @event.comments.build
 
     @new_subscription = @event.subscriptions.build(params[:subscription])
 
