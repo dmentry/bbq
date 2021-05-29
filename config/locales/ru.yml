@@ -111,6 +111,8 @@ ru:
     events_list: 'События'
     new_event: 'Новое событие'
     pincode_access: 'Доступ только по пин-коду'
+    pincode_enter: 'Ввести пин-код'
+    pincode: 'Пин-код'
     add_photo: 'Добавил'
     destroy_confirm_photo: 'Вы уверены, что хотите удалить эту фотографию?'
     photo_added: 'Добавлена: '
@@ -127,7 +129,7 @@ ru:
       links:
         log_in: 'Войти'
         signed_up: 'Зарегистрироваться'
-        signed_in: 'Signed in successfully.'
+        signed_in: 'Вход выполнен успешно'
         sign_in_with: 'Войти, используя аккаунт'
         forgot_password: 'Забыли пароль?'
         not_receive_confirmation_instructions: "Не получили инструкций по подтверждению?"
